@@ -78,12 +78,16 @@ body {
   font-family: "Open Sans", sans-serif;
   background-color: #fafafa;
   color: #262626;
+  padding-top: 60px;
 }
 
 header {
   background-color: #fff;
   width: 100%;
   border-bottom: 1px solid #dbdbdb;
+  position: fixed;
+  top: 0;
+  z-index: 10;
 }
 header nav {
   display: flex;
@@ -141,7 +145,6 @@ header nav ul li .profile-img {
   max-width: 614px;
   width: 100%;
   overflow: hidden;
-  margin-right: 30px;
 }
 .container main .stories {
   display: flex;
@@ -330,90 +333,110 @@ header nav ul li .profile-img {
   transform: scale(0.9);
 }
 .container aside {
-  padding: 20px 0;
-  max-width: 300px;
-  width: 100%;
+  display: none;
 }
-.container aside .profile {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-}
-.container aside .profile img {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 1px solid #dbdbdb;
-}
-.container aside .profile .user-profile {
-  font-size: 14px;
-  flex-grow: 1;
-  margin: 0 12px;
-}
-.container aside .profile .user-profile .thin {
-  font-weight: 300;
-  color: #8e8e8e;
-}
-.container aside .profile .switch {
-  font-size: 14px;
-  color: #0095f6;
-  font-weight: bold;
-  cursor: pointer;
-}
-.container aside .suggestions {
-  margin-top: 20px;
-  font-size: 14px;
-}
-.container aside .suggestions .suggestion-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  margin-bottom: 12px;
-}
-.container aside .suggestions .suggestion-title:first-child {
-  color: #8e8e8e;
-}
-.container aside .suggestions .suggestion-title .see-all {
-  color: #262626;
-  font-weight: 300;
-  cursor: pointer;
-}
-.container aside .suggestions .suggestion {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  margin: 6px 0;
-}
-.container aside .suggestions .suggestion img {
-  width: 30px;
-  height: 30px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin: 6px 12px 6px 0;
-}
-.container aside .suggestions .suggestion .suggestion-user {
-  font-size: 14px;
-  flex-grow: 1;
-}
-.container aside .suggestions .suggestion .suggestion-user .subtitle {
-  font-weight: 300;
-  font-size: 12px;
-  color: #8e8e8e;
-}
-.container aside .suggestions .suggestion .follow {
-  font-size: 14px;
-  color: #0095f6;
-  cursor: pointer;
-  font-weight: 700;
-}
-.container aside .attribution {
-  color: #c7c7c7;
-  font-size: 10px;
-  text-transform: uppercase;
+
+@media (min-width: 1000px) {
+  .container {
+    width: 991px;
+    margin: 0 auto;
+    justify-content: flex-start;
+    position: relative;
+  }
+
+  main {
+    margin-right: 30px;
+  }
+
+  aside {
+    display: block !important;
+    position: fixed;
+    left: 65vw;
+    padding: 20px 0;
+    max-width: 300px;
+    width: 100%;
+  }
+  aside .profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+  }
+  aside .profile img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #dbdbdb;
+  }
+  aside .profile .user-profile {
+    font-size: 14px;
+    flex-grow: 1;
+    margin: 0 12px;
+  }
+  aside .profile .user-profile .thin {
+    font-weight: 300;
+    color: #8e8e8e;
+  }
+  aside .profile .switch {
+    font-size: 14px;
+    color: #0095f6;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  aside .suggestions {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  aside .suggestions .suggestion-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 12px;
+  }
+  aside .suggestions .suggestion-title:first-child {
+    color: #8e8e8e;
+  }
+  aside .suggestions .suggestion-title .see-all {
+    color: #262626;
+    font-weight: 300;
+    cursor: pointer;
+  }
+  aside .suggestions .suggestion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin: 6px 0;
+  }
+  aside .suggestions .suggestion img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 6px 12px 6px 0;
+  }
+  aside .suggestions .suggestion .suggestion-user {
+    font-size: 14px;
+    flex-grow: 1;
+  }
+  aside .suggestions .suggestion .suggestion-user .subtitle {
+    font-weight: 300;
+    font-size: 12px;
+    color: #8e8e8e;
+  }
+  aside .suggestions .suggestion .follow {
+    font-size: 14px;
+    color: #0095f6;
+    cursor: pointer;
+    font-weight: 700;
+  }
+  aside .attribution {
+    color: #c7c7c7;
+    font-size: 10px;
+    text-transform: uppercase;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
