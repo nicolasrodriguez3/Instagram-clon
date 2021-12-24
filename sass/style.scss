@@ -1,0 +1,341 @@
+@import "vars/variables";
+@import "normalice/normalice";
+@import "mixins/mixins";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap");
+
+body {
+	font-family: $font;
+	background-color: $bg-light;
+	color: $text-color-black;
+}
+
+header {
+	background-color: $white;
+	width: 100%;
+	border-bottom: $separador;
+
+	nav {
+		@include flex(space-between, center);
+		padding: 0 16px;
+		max-width: 975px;
+		height: 60px;
+		margin: 0 auto;
+
+		[type="search"] {
+			display: none;
+			background-color: $bg-light;
+			border: 1px solid $border-light;
+			padding: 5px 12px;
+			border-radius: 3px;
+			font: 300 14px $font;
+		}
+
+		ul {
+			@include flex(center, center);
+			list-style: none;
+			margin: 0;
+			li {
+				a > span {
+					display: inline-block;
+					margin-top: 5px;
+				}
+				&:not(:first-child) {
+					padding-left: 20px;
+				}
+				.profile-img {
+					border-radius: 50%;
+					object-fit: cover;
+					$img: 25px;
+					width: $img;
+					height: $img;
+					border: 1px solid $border-dark;
+				}
+			}
+		}
+	}
+}
+.bold {
+	font-weight: bold;
+}
+
+.container {
+	@include flex(center);
+	padding-top: 25px;
+
+	main {
+		//padding-top: 16px;
+		max-width: 614px;
+		width: 100%;
+		overflow: hidden;
+		margin-right: 30px;
+
+		.stories {
+			@include flex(start, center);
+			background-color: #fff;
+			width: 100%;
+			overflow-x: scroll;
+			padding: 16px 0 8px 12px;
+			margin-bottom: 24px;
+			border-bottom: $separador;
+			border: 1px solid $border-light;
+			border-radius: 3px;
+
+			&::-webkit-scrollbar {
+				height: 9px; /* width of the entire scrollbar */
+			}
+
+			&::-webkit-scrollbar-track {
+				background: none; /* color of the tracking area */
+			}
+
+			&::-webkit-scrollbar-thumb {
+				background-color: $border-light; /* color of the scroll thumb */
+				border: 3px solid #fff;
+				border-radius: 5px;
+			}
+
+			scrollbar-width: thin; /* "auto" or "thin" */
+			scrollbar-color: $border-light #fff; /* scroll thumb and track */
+
+			.story {
+				@include flex(start, center, column);
+
+				margin: 0 4px;
+
+				.circle {
+					$width: 60px;
+					height: $width;
+					width: $width;
+					padding: 2px;
+					border-radius: 50%;
+					border: 2px solid #dd4183;
+
+					img {
+						object-fit: cover;
+						width: 100%;
+						height: 100%;
+						border-radius: 50%;
+					}
+				}
+				.story-user {
+					font-size: 12px;
+					text-align: center;
+					color: $text-color-black;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					max-width: 74px;
+					width: 90%;
+					margin: 6px auto 0;
+				}
+			}
+		}
+
+		.feed {
+			background-color: $bg-light;
+
+			.post {
+				border: 1px solid $border-light;
+				border-radius: 3px;
+				margin-bottom: 30px;
+
+				.user {
+					@include flex(space-between, center);
+					padding: 14px 16px;
+
+					.img-user > img {
+						$ancho: 36px;
+						width: $ancho;
+						height: $ancho;
+						object-fit: cover;
+						border-radius: 50%;
+						border: 1px solid $border-light;
+					}
+					.post-user {
+						@include flex(center, start, column);
+						flex-grow: 1;
+						margin: 0 16px;
+
+						span {
+							font: bold 14px;
+						}
+						small {
+							font-size: 12px;
+						}
+					}
+					.more-options {
+						background: none;
+						border: none;
+						&:hover {
+							cursor: pointer;
+						}
+						&:active {
+							transform: scale(0.9);
+						}
+					}
+				}
+
+				.icons-post {
+					@include flex;
+					padding: 10px 12px;
+
+					span {
+						display: inline-block;
+						margin-top: 6px;
+						padding: 0 6px;
+						background: none;
+						border: none;
+
+						&:last-child {
+							margin-left: auto;
+							text-align: right;
+						}
+
+						&:hover {
+							cursor: pointer;
+						}
+						&:active {
+							transform: scale(0.9);
+						}
+					}
+				}
+
+				.likes-post,
+				.description-post,
+				.comments-post {
+					padding: 0 16px;
+					font-size: 14px;
+					margin-bottom: 6px;
+				}
+				.description-post {
+					line-height: 1.5;
+					.time {
+						font-size: 10px;
+						color: $border-dark;
+						text-transform: uppercase;
+						margin: 6px 0 10px;
+					}
+				}
+				.comments-post {
+					@include flex(start, center);
+					padding: 10px 12px;
+					border-top: 1px solid $border-light;
+					margin-bottom: 0;
+
+					.reaction {
+						display: inline-block;
+						margin-top: 6px;
+						padding: 0 6px;
+						background: none;
+						border: none;
+						&:hover {
+							cursor: pointer;
+						}
+						&:active {
+							transform: scale(0.9);
+						}
+					}
+					.comment-add {
+						margin: 0 16px;
+						flex-grow: 1;
+						border: none;
+						outline: none;
+						background: none;
+					}
+					button {
+						color: $text-color;
+						text-decoration: none;
+						border: none;
+						background: none;
+						&:active {
+							transform: scale(0.9);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	aside {
+		padding: 20px 0;
+		max-width: 300px;
+		width: 100%;
+
+		.profile {
+			@include flex(space-between, center);
+			img {
+				$ancho: 50px;
+				width: $ancho;
+				height: $ancho;
+				object-fit: cover;
+				border-radius: 50%;
+				border: 1px solid $border-light;
+			}
+			.user-profile {
+				font-size: 14px;
+				flex-grow: 1;
+				margin: 0 12px;
+				.thin {
+					font-weight: 300;
+					color: $border-dark;
+				}
+			}
+			.switch {
+				font-size: 14px;
+				color: $text-color;
+				font-weight: bold;
+        cursor: pointer;
+			}
+		}
+		.suggestions {
+			margin-top: 20px;
+			font-size: 14px;
+
+			.suggestion-title {
+				@include flex(space-between, center);
+				margin-bottom: 12px;
+
+				&:first-child {
+					color: $border-dark;
+				}
+				.see-all {
+					color: $text-color-black;
+					font-weight: 300;
+					cursor: pointer;
+				}
+			}
+			.suggestion {
+				@include flex(space-between, center);
+				margin: 6px 0;
+				img {
+					$ancho: 30px;
+					width: $ancho;
+					height: $ancho;
+					object-fit: cover;
+					border-radius: 50%;
+					margin: 6px 12px 6px 0;
+          
+				}
+				.suggestion-user {
+					font-size: 14px;
+					flex-grow: 1;
+					.subtitle {
+						font-weight: 300;
+						font-size: 12px;
+						color: $border-dark;
+					}
+				}
+				.follow {
+					font-size: 14px;
+					color: $text-color;
+          cursor: pointer;
+					font-weight: 700;
+				}
+			}
+		}
+		.attribution {
+			color: #c7c7c7;
+			font-size: 10px;
+			text-transform: uppercase;
+		}
+	}
+}
